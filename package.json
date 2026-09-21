@@ -1,0 +1,12 @@
+{
+  "name": "daily-word-workout",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A daily vocabulary and printable worksheet app for children aged 9-11.",
+  "scripts": {
+    "start": "python3 -m http.server 4321 --bind 127.0.0.1",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "../node_modules/.bin/playwright test --config=playwright.config.js"
+  }
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ten new vocabulary words, meanings, synonyms and antonyms every day for children aged 9-11." />
+    <title>Daily Word Workout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#word-list">Skip to today's words</a>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="brand" aria-label="Daily Word Workout">
+          <span class="brand-mark" aria-hidden="true">W</span>
+          <span>Daily Word Workout</span>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">10 words · 15 minutes · every day</p>
+          <h1>Grow your word power.</h1>
+          <p class="intro">Read them, say them, then make them your own.</p>
+        </div>
+        <div class="hero-doodle" aria-hidden="true">
+          <span>bright</span><span>bold</span><span>brave</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="toolbar" aria-label="Worksheet controls">
+          <div class="date-control">
+            <button class="icon-button" id="previous-day" type="button" aria-label="Previous day">←</button>
+            <div>
+              <span class="date-label">Your words for</span>
+              <time id="display-date"></time>
+              <span id="worksheet-version-label" class="worksheet-version-label">Practice worksheet</span>
+            </div>
+            <button class="icon-button" id="next-day" type="button" aria-label="Next day">→</button>
+          </div>
+          <div class="actions">
+            <button class="secondary-button" id="today-button" type="button">Today</button>
+            <button class="print-button" id="print-button" type="button">
+              <span aria-hidden="true">↧</span> <span id="print-button-label">Print Practice PDF</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="worksheet-selector" aria-labelledby="worksheet-selector-title">
+          <div>
+            <p class="eyebrow">Two useful versions</p>
+            <h2 id="worksheet-selector-title">Choose today’s worksheet</h2>
+            <p id="worksheet-mode-help">Meanings, synonyms and antonyms are blank so your child can attempt them first.</p>
+          </div>
+          <div class="mode-buttons" role="group" aria-label="Worksheet version">
+            <button id="practice-mode" class="mode-button" type="button" aria-pressed="true">
+              <span class="mode-icon" aria-hidden="true">✎</span>
+              <span><strong>Practice</strong><small>Answers hidden</small></span>
+            </button>
+            <button id="answer-mode" class="mode-button" type="button" aria-pressed="false">
+              <span class="mode-icon" aria-hidden="true">✓</span>
+              <span><strong>Answer sheet</strong><small>Answers shown</small></span>
+            </button>
+          </div>
+        </section>
+
+        <section class="progress-panel" aria-label="Daily progress">
+          <div>
+            <span id="level-badge" class="level-badge">Building confidence</span>
+            <p><strong id="progress-count">0 of 10</strong> words learned</p>
+          </div>
+          <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+          <p id="source-status" class="source-status" role="status">Loading word details…</p>
+        </section>
+
+        <section class="instructions">
+          <span class="instruction-number">1</span>
+          <div><strong>Read &amp; discover</strong><span>Say each word aloud and study its word family.</span></div>
+          <span class="instruction-number">2</span>
+          <div><strong>Make a sentence</strong><span>Use the lines to show what the word means.</span></div>
+          <span class="instruction-number">3</span>
+          <div><strong>Tick when ready</strong><span>Can you explain it without looking?</span></div>
+        </section>
+
+        <section id="word-list" class="word-grid" aria-live="polite" aria-busy="true"></section>
+
+        <section class="daily-challenge">
+          <div>
+            <p class="eyebrow">Bonus challenge</p>
+            <h2>Word detective</h2>
+            <p>Choose two words from today. Can you use both in one brilliant sentence?</p>
+          </div>
+          <div class="challenge-lines" aria-label="Space to write your challenge sentence">
+            <span></span><span></span><span></span>
+          </div>
+        </section>
+
+        <p class="print-help">Tip: choose “Save as PDF” in the print window to download today’s worksheet.</p>
+      </main>
+
+      <footer>
+        <p>Made for curious minds aged 9-11.</p>
+        <p>Live word relationships powered by <a href="https://www.datamuse.com/api/" target="_blank" rel="noreferrer">Datamuse</a>.</p>
+      </footer>
+    </div>
+    <template id="word-card-template">
+      <article class="word-card">
+        <div class="word-number"></div>
+        <div class="word-content">
+          <div class="word-heading">
+            <div>
+              <h2 class="word"></h2>
+              <span class="part-of-speech"></span>
+            </div>
+            <button class="speak-button" type="button" aria-label="Hear word">◖))</button>
+          </div>
+          <div class="meaning-wrap">
+            <span class="meaning-label">Meaning</span>
+            <p class="meaning"></p>
+          </div>
+          <dl class="relations">
+            <div><dt>Synonym</dt><dd class="synonyms"></dd></div>
+            <div><dt>Antonym</dt><dd class="antonyms"></dd></div>
+          </dl>
+          <div class="sentence-space"><span>My sentence</span><i></i><i></i></div>
+          <label class="learned-check"><input type="checkbox" /> <span>I know this word</span></label>
+        </div>
+      </article>
+    </template>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
