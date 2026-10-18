@@ -1,6 +1,4 @@
-import playwright from '../node_modules/@playwright/test/index.js';
-
-const { defineConfig, devices } = playwright;
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',

@@ -1,6 +1,4 @@
-import playwright from '../../node_modules/@playwright/test/index.js';
-
-const { test, expect } = playwright;
+import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
   await page.route('https://api.datamuse.com/**', route => route.abort());
